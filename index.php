@@ -16,7 +16,7 @@ session_start();
     echo '<h1>Hello from PHP</h1>';
   ?>
   <h2>Are you a student or an administrator?</h2>
-  <a href="student_login.php"><button>Student Login</button></a>
-  <a href="admin_login.php"><button>Administrator Login</button></a>
+  <a href="student_login.php" class="button">Student Login</a>
+  <a href="admin_login.php" class="button">Administrator Login</a>
 </body>
 </html>
