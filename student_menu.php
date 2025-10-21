@@ -1,7 +1,7 @@
 <hmtl>
     <head>
     <title>Student Menu</title>
-    <link rel = "stylesheet" href="styles.css">
+    <link rel = "stylesheet" href="style.css">
     </head>
 <body>
 <?php

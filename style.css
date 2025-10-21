@@ -99,7 +99,7 @@ tr:nth-child(even) {
     margin-right: 10px;
 }
 
-.button {
+a.button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;

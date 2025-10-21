@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <hmtl>
     <head>
     <title>Student Regitration</title>
-    <link rel = "stylesheet" href="styles.css">
+    <link rel = "stylesheet" href="style.css">
     </head>
 <body>
 <form method="post" action="">

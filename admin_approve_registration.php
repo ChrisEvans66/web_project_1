@@ -1,7 +1,7 @@
 <hmtl>
     <head>
     <title>Approve Registration</title>
-    <link rel = "stylesheet" href="styles.css">
+    <link rel = "stylesheet" href="style.css">
     </head>
 <body>
 <?php
