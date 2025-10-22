@@ -1,11 +1,11 @@
 <hmtl>
     <head>
     <title>Student View Course</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="../Misc/style.css">
     </head>
 <body>
 <?php
-include 'db.php';
+include '../Misc/db.php';
 if (!isset($_SESSION['student_id'])) {
     header("Location: student_login.php");
     exit();

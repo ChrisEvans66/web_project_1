@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../Misc/db.php';
 if (!isset($_SESSION['student_id'])) {
     header("Location: student_login.php");
     exit();

@@ -10,7 +10,7 @@ if (!isset($_SESSION['student_id'])) {
 <html>
 <head>
     <title>Student Menu</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="../Misc/style.css">
 </head>
 <body>
     <div class="menu-container">
@@ -19,7 +19,7 @@ if (!isset($_SESSION['student_id'])) {
         <a href="view_registrations.php" class="menu-button">View My Courses</a>
         <a href="drop_course.php" class="menu-button">Drop a Course</a>
         <a href="edit_profile.php" class="menu-button">Edit Profile</a>
-        <a href="logout.php" class="menu-button" style="background-color: #d9534f;">Logout</a>
+        <a href="../Misc/logout.php" class="menu-button" style="background-color: #d9534f;">Logout</a>
     </div>
 </body>
 </html>

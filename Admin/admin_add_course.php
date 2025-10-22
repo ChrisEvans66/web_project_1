@@ -1,11 +1,11 @@
 <hmtl>
     <head>
     <title>Add Course Menu</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="../Misc/style.css">
     </head>
 <body>
 <?php
-include 'db.php';
+include '../Misc/db.php';
 if (!isset($_SESSION['admin_id'])) {
     header("Location: admin_login.php");
     exit();

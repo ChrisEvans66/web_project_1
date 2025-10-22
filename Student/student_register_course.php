@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../Misc/db.php';
 session_start();
 if (!isset($_SESSION['student_id'])) {
     header("Location: student_login.php");
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <hmtl>
     <head>
     <title>Student Course Registration</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="../Misc/style.css">
     </head>
 <body>
 <form method="post" action="">

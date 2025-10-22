@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../Misc/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <hmtl>
     <head>
     <title>Student Regitration</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="../Misc/style.css">
     </head>
 <body>
 <form method="post" action="">
