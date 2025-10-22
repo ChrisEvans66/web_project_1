@@ -1,11 +1,6 @@
-<hmtl>
-    <head>
-    <title>Student Course Registration</title>
-    <link rel = "stylesheet" href="style.css">
-    </head>
-<body>
 <?php
 include 'db.php';
+session_start();
 if (!isset($_SESSION['student_id'])) {
     header("Location: student_login.php");
     exit();
@@ -18,7 +13,7 @@ $courses = $con->query("SELECT * FROM courses");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $course_id = $_POST['course_id'];
-    $stmt = $con->prepare("INSERT INTO registrations (student_id, course_id, status, date_registered) VALUES (?, ?, 'Pending', NOW())");
+    $stmt = $con->prepare("INSERT INTO registration (student_id, course_id, status, date_registered) VALUES (?, ?, 'Pending', NOW())");
     $stmt->bind_param("ii", $student_id, $course_id);
     if ($stmt->execute()) {
         echo "Course registration submitted and pending approval.";
@@ -28,7 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 ?>
-
+<hmtl>
+    <head>
+    <title>Student Course Registration</title>
+    <link rel = "stylesheet" href="style.css">
+    </head>
+<body>
 <form method="post" action="">
     <label for="course_id">Select Course:</label>
     <select name="course_id" id="course_id" required>

@@ -13,7 +13,7 @@ session_start();
 </head>
 <body>
   <?php
-    echo '<h1>Hello from PHP</h1>';
+    echo '<h1>Welcome to the main menu</h1>';
   ?>
   <h2>Are you a student or an administrator?</h2>
   <a href="student_login.php" class="button">Student Login</a>
