@@ -6,13 +6,11 @@ if (!isset($_SESSION['admin_id']))
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Menu</title>
     <link rel="stylesheet" href="../Misc/style.css?v=1.0">  <!-- links the CSS file for styling -->
-
 </head>
 <body>
         <div class="menu-container">    <!-- CSS class for menu container-->
@@ -24,6 +22,5 @@ if (!isset($_SESSION['admin_id']))
         <a href="admin_student_view.php" class="menu-button"style="background-color: #f4b942ff;">View Students</a>
         <a href="../Misc/logout.php" class="menu-button" style="background-color: #d9534f;">Logout</a>
     </div>
-
 </body>
 </html>

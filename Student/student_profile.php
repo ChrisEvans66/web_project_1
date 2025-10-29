@@ -8,8 +8,7 @@ if (!isset($_SESSION['student_id']))
     exit();
 }
 $student_id = $_SESSION['student_id'];
-// Handles profile update//
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
+if ($_SERVER["REQUEST_METHOD"] == "POST") // Handles profile update//
 {
     $username = $_POST['username'];
     $full_name = $_POST['full_name'];
@@ -27,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
     $update_stmt->close();
 }
-
 // Fetches the current profile data//
 $stmt = $con->prepare("SELECT username, full_name, email, program FROM students WHERE student_id = ?");
 $stmt->bind_param("i", $student_id);

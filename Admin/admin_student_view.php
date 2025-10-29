@@ -1,13 +1,11 @@
 <?php   // Start of PHP //
 include '../Misc/db.php';   // includes connection to database //
 session_start();    // Start session management //
-// If admin is not logged in, redirect to login page //
-if (!isset($_SESSION['admin_id'])) 
+if (!isset($_SESSION['admin_id'])) // If admin is not logged in, redirect to login page //
 {
     header("Location: admin_login.php");
     exit();
 }
-
 // retrieves all students from the database //
 $sql = "SELECT student_id, username, full_name, email, program FROM students ORDER BY student_id";
 $result = $con->query($sql);
@@ -22,8 +20,7 @@ if ($result === false)
     <meta charset="utf-8">
     <title>All Students</title>
     <link rel="stylesheet" href="../Misc/style.css?v=1.0">  <!-- links the CSS file for styling -->
-    <style>
-        /* Additional inline styles for table */
+    <style>              /* Additional inline styles for table */
         .student-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         .student-table th, .student-table td { padding: 10px; border: 1px solid #ddd; text-align: left; }
         .student-table th { background: #2e7d32; color: #fff; }
@@ -60,14 +57,13 @@ if ($result === false)
     <?php else: ?>
         <p class="no-records">No students found.</p>
     <?php endif; ?>
-
     <div class="menu-button">    <!-- Navigation buttons with a class to stle the buttons-->
             <a href="admin_menu.php" class="menu-button" style="background-color: #0c7624ff;">Back to Menu</a>
             <a href="../Misc/logout.php" class="menu-button" style="background-color: #d9534f;">Logout</a>
     </div>
-</body>
-</html>
 <?php
 $result->free();        // Free result set //
 $con->close();  // Close the database connection //
 ?>
+</body>
+</html>

@@ -1,7 +1,6 @@
 <?php
 include '../Misc/db.php';     // connects to the database//
 session_start();    // Start the session//
-
     // Checks if the student is logged in//
 if (!isset($_SESSION['student_id']))
 {

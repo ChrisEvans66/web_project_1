@@ -1,8 +1,5 @@
-
 <?php //start of PHP//
 include '../Misc/db.php';     //includes connection to database//
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") // check if the form has been submitted //
 {
     $registration_id = $_POST['registration_id'];   // retrieves registration ID from form //
@@ -11,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // check if the form has been submitte
       $stmt = $con->prepare("UPDATE registration SET status = ? WHERE registration_id = ?");
        $status = 'Accepted'; 
         $stmt->bind_param("si", $status, $registration_id);
-
         $stmt->execute();
         $stmt->close();
         echo "Registration approved.";

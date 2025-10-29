@@ -43,10 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Checks if  the form ihas been submi
     </head>
 <body>
 <!-- Form for adding a new course -->
+
 <div class="form-box">
-        <h2>Add New Course</h2>
+        <h2 style="text-align:center;">Add New Course</h2> 
         <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
-        <form method="post" action="">
+            <form method="post" action="">
             <input type="text" name="course_code" placeholder="Course Code" required>
             <input type="text" name="course_name" placeholder="Course Name" required>
             <textarea name="description" placeholder="Description" required></textarea>

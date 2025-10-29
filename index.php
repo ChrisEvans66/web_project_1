@@ -14,7 +14,7 @@ session_start();  // Start The Session //
 <body>
    <div class ="menu-button"> <!-- Main Menu Buttons -->
    <h1>Welcome to the main menu</h1>
-  <h2>Are you a student or an administrator?</h2>S
+  <h2>Are you a student or an administrator?</h2>
   <!-- Buttons to redirect to student or admin login pages -->
   <a href="Student/student_login.php" class="menu-button" style=" background: green">Student Login</a>
   <a href="Admin/admin_login.php" class="menu-button"  style=" background: red">Administrator Login</a>
