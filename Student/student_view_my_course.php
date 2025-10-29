@@ -1,36 +1,57 @@
 <?php
+include '../Misc/db.php';
 session_start();
-include '../Misc/db.php'; // the DB connection file
-
-// Check if student is logged in
 if (!isset($_SESSION['student_id'])) {
-    echo "Please log in to view your courses.";
-    exit;
-}
-
+    header("Location: student_login.php");
+    exit();
+}   
 $student_id = $_SESSION['student_id'];
-
-// Fetch courses for the logged-in student
-$sql = "SELECT c.course_name, c.course_code 
+$sql = "SELECT s.full_name, c.course_code, c.course_name, r.status, r.registration_id
         FROM registration r
         JOIN courses c ON r.course_id = c.course_id
-        WHERE r.student_id = ? AND r.status = 'Accepted'";
+        JOIN students s ON r.student_id = s.student_id
+        WHERE r.student_id = ?";
 $stmt = $con->prepare($sql);
-$stmt->bind_param("i", $student_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-echo "<h2>My Registered Courses</h2>";
-if ($result->num_rows > 0) {
-    echo "<ul>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<li><strong>{$row['course_name']}</strong> ({$row['course_code']}) </li>";
-    }
-    echo "</ul>";
+if ($stmt) {
+    $stmt->bind_param("i", $student_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 } else {
-    echo "You are not registered for any courses.";
+    echo "SQL error: " . $con->error;
+    exit;
 }
-
 $stmt->close();
-$con->close();
 ?>
+<!DOCTYPE html>
+<html>      
+<head>
+    <title>My Courses</title>
+    <link rel="stylesheet" href="../Misc/style.css?v=1.0">
+</head>
+<body> 
+ <div class="menu-container">
+    <h1>My Registered Courses</h1>
+    </div>    
+<table border="1">
+    <tr><th>Student</th><th>Course Code</th><th>Course Name</th><th>Status</th></tr>
+    <?php 
+    
+    while ($row = $result->fetch_assoc()) { ?>
+        <tr>
+            <td><?php echo $row['full_name']; ?></td>
+            <td><?php echo $row['course_code']; ?></td>
+            <td><?php echo $row['course_name']; ?></td>
+            <td><?php echo $row['status']; ?></td>          
+        </tr>
+    <?php } ?>
+</table>
+
+      <div class="menu-button">
+        <a href="student_menu.php" class="menu-button" style="background-color: green; ">Back to Menu</a>
+        <a href="../Misc/logout.php" class="menu-button" style="background-color: red;">Logout</a>
+    </div>  
+
+
+
+</body>
+</html>

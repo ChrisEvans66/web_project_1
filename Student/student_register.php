@@ -20,9 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <hmtl>
     <head>
     <title>Student Regitration</title>
-    <link rel = "stylesheet" href="../Misc/style.css">
+   <link rel="stylesheet" href="../Misc/style.css?v=1.0">
     </head>
 <body>
+    <h1>Student Registration</h1>
 <form method="post" action="">
     Username: <input type="text" name="username" required><br>
     Password: <input type="password" name="password" required><br>
@@ -31,5 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     Program: <input type="text" name="program" required><br>
     <input type="submit" value="Register">
 </form>
+        <div class="menu-container">    
+        <a href="student_menu.php" class="menu-button" style="background-color: green; ">Back to Menu</a>
+        <a href="../Misc/logout.php" class="menu-button" style="background-color: red;">Logout</a>
+    </div>  
 </body>
 </html>

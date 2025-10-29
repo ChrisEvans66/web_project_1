@@ -1,5 +1,6 @@
 <?php
 include '../Misc/db.php';
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -27,13 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <hmtl>
     <head>
     <title>Admin Login</title>
-    <link rel = "stylesheet" href="style.css">
-    </head>
+    <div class ="menu-button">
+    <h1>Admin Login</h1>    
+        <link rel="stylesheet" href="../Misc/style.css?v=1.0">
+    </head> 
 <body>
 <form method="post" action="">
     Username: <input type="text" name="username" required><br>
     Password: <input type="password" name="password" required><br>
-    <input type="submit" value="Login">
+    <input type="submit" value="Login"> 
 </form>
+</div>
 </body>
 </html>

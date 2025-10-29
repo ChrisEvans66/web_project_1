@@ -1,8 +1,28 @@
-<html><head>
+<?php
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: admin_login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
     <title>Admin Menu</title>
-    <link rel = "stylesheet" href="../Misc/style.css">
-    </head>
+    <link rel="stylesheet" href="../Misc/style.css?v=1.0">
+
+</head>
 <body>
-    <h1>Admin Menu Page - Under Construction</h1>
-    <p>This page is currently under construction. Please check back later for updates.</p>
-</body> </html>
+        <div class="menu-container">
+        <h2>Welcome, Administrator</h2>
+     
+        <a href="admin_add_course.php" class="menu-button"style="background-color: #cc17dcff;">Add Courses</a>
+        <a href="admin_approve_registration.php" class="menu-button"style="background-color: #545fc6ff;">Approve Registration</a>
+        <a href="admin_view_registrations.php" class="menu-button"style="background-color: #4fd971ff;">Admin View Registration</a>
+        <a href="admin_student_view.php" class="menu-button"style="background-color: #f4b942ff;">View Students</a>
+        <a href="../Misc/logout.php" class="menu-button" style="background-color: #d9534f;">Logout</a>
+    </div>
+
+</body>
+</html>

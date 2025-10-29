@@ -28,14 +28,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <hmtl>
     <head>
     <title>Student Login</title>
-    <link rel = "stylesheet" href="../Misc/style.css">
+   <link rel="stylesheet" href="../Misc/style.css?v=1.0">
     </head>
 <body>
+<div class ="menu-button">
+<h2>Student Login</h2>
 <form method="post" action="">
     Username: <input type="text" name="username" required><br>
     Password: <input type="password" name="password" required><br>
     <input type="submit" value="Login">
-    <p>New Student? <a href="student_register.php">Register here</a></p>
+    <p>New Student? <a href="student_register.php">Register here</a></p>     
 </form>
+</div>
 </body>
 </html>

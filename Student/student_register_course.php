@@ -23,20 +23,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 ?>
-<hmtl>
-    <head>
-    <title>Student Course Registration</title>
-    <link rel = "stylesheet" href="../Misc/style.css">
-    </head>
+<!DOCTYPE html>
+<html>          
+<head>
+    <title>Register for Courses</title>
+<link rel="stylesheet" href="../Misc/style.css?v=1.0">
+</head>
 <body>
+    <div class ="menu-button">   
+<h2>Register for a Course</h2>
 <form method="post" action="">
     <label for="course_id">Select Course:</label>
     <select name="course_id" id="course_id" required>
-        <?php while ($row = $courses->fetch_assoc()) { ?>
-            <option value="<?php echo $row['course_id']; ?>"><?php echo $row['course_code'] . " - " . $row['course_name']; ?></option>
-        <?php } ?>
+        <?php
+        while ($course = $courses->fetch_assoc()) {
+            echo '<option value="' . $course['course_id'] . '">' . htmlspecialchars($course['course_code'] . ' - ' . $course['course_name']) . '</option>';
+        }
+        ?>
     </select>
-    <input type="submit" value="Register">
+    <input type="submit" value="Register" style="background-color: green; " >      
 </form>
-</body>
+     <a href="student_menu.php" class="menu-button" style="background-color: green; ">Back to Menu</a>
+     <a href="../Misc/logout.php" class="menu-button" style="background-color: red;">Logout</a>
+    </div>
+</body> 
 </html>
