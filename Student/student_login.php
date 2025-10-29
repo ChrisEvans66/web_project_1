@@ -1,5 +1,5 @@
 <?php
-include '../Misc/db.php';   // connect to the database//
+include '../Misc/db.php';   // connects to the database//
 session_start();    // start the session//
     // Handles the login form submission//
 if ($_SERVER["REQUEST_METHOD"] == "POST")
