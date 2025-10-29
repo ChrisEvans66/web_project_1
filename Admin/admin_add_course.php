@@ -1,30 +1,32 @@
-<?php
-include '../Misc/db.php';
+<?php       // Start of PHP code //
+include '../Misc/db.php'; // Include connection to database//
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['update_course'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") // Checks if  the form ihas been submitted //
+{
+    if (isset($_POST['update_course'])) // Checks if it is updating an existing course //
+    {      // Retrieves data from form //
         $course_id = $_POST['course_id'];
         $course_code = $_POST['course_code'];
         $course_name = $_POST['course_name'];
         $description = $_POST['description'];
         $credits = $_POST['credits'];
         $lecturer = $_POST['lecturer'];
-
+        // Prepares and executes update query //                                                    
         $stmt = $con->prepare("UPDATE courses SET course_code = ?, course_name = ?, description = ?, credits = ?, lecturer = ? WHERE course_id = ?");
         $stmt->bind_param("sssisi", $course_code, $course_name, $description, $credits, $lecturer, $course_id);
         $stmt->execute();
         $stmt->close();
         $message = "Course updated.";
     }
-
-    if (isset($_POST['add_course'])) {
+        // Checks if it is adding a new course //
+    if (isset($_POST['add_course'])) 
+    {   
         $course_code = $_POST['course_code'];
         $course_name = $_POST['course_name'];
         $description = $_POST['description'];
         $credits = $_POST['credits'];
         $lecturer = $_POST['lecturer'];
-
+        // Prepares and executes insert query //
         $stmt = $con->prepare("INSERT INTO courses (course_code, course_name, description, credits, lecturer) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssds", $course_code, $course_name, $description, $credits, $lecturer);
         $stmt->execute();
@@ -32,15 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "New course added.";
     }
 }
-?>
+?>  <!-- End of PHP code -->
 <!DOCTYPE html>
 <hmtl>
 <head>
-    <title>Add Course Menu</title>
-    <link rel="stylesheet" href="../Misc/style.css?v=1.0">
+    <title>Add Course Menu</title>  <!-- Title of the page -->
+    <link rel="stylesheet" href="../Misc/style.css?v=1.0">  <!-- links the CSS file for styling -->
     </head>
 <body>
-
+<!-- Form for adding a new course -->
 <div class="form-box">
         <h2>Add New Course</h2>
         <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
@@ -54,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    <h2 style="text-align:center;">Edit Existing Courses</h2>
-    <table>
+    <h2 style="text-align:center;">Edit Existing Courses</h2>   
+    <table>     <!-- Table for displaying and editing existing courses -->
         <tr><th>Code</th><th>Name</th><th>Description</th><th>Credits</th><th>Lecturer</th><th>Action</th></tr>
         <?php
         $result = $con->query("SELECT * FROM courses");
@@ -77,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
     </table>
 
-    <div class="menu-container">
+    <div class="menu-container">    <!-- Navigation buttons with a class to stle the buttons-->
         <a href="admin_menu.php" class="menu-button" style="background-color: green;">Back to Menu</a>
         <a href="../Misc/logout.php" class="menu-button" style="background-color: red;">Logout</a>
     </div>
