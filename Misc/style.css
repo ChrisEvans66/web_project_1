@@ -1,3 +1,4 @@
+    /*styles for the main body*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,6 +16,7 @@ body {
     align-items: center;
     gap: 15px;
     margin-top: 30px;
+    /* button styles*/
 }
 .menu-button {
     margin-top:20px;
@@ -30,7 +32,7 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align-last: center;
 }
-
+    /* styles for the table*/    
 th  {
     background-color: rgb(14, 237, 51);
     padding: 10px;
